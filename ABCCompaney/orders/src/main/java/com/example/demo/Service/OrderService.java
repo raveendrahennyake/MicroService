@@ -32,7 +32,7 @@ public class OrderService {
         Integer itemId=OrderDTO.getItemId();
         try {
             InventoryDTO inventoryResponce=webClient.get()
-                    .uri("http://localhost:8081/api/v1/item//{itemId}")
+                    .uri(uriBuilder ->  "http://localhost:8081/api/v1/item//{itemId}")
                     .retrieve()
                     .bodyToMono(InventoryDTO.class)
                     .block();
