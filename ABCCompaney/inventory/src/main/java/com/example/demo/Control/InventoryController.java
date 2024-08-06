@@ -3,6 +3,7 @@ package com.example.demo.Control;
 import com.example.demo.D.T.O.InventoryDTO;
 import com.example.demo.Service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,7 +11,6 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @RequestMapping(value = "api/v1/")
-
 public class InventoryController {
     @Autowired
     private InventoryService inventoryService;
