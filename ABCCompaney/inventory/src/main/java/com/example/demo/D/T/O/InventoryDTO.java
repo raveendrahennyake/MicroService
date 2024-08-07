@@ -1,5 +1,6 @@
 package com.example.demo.D.T.O;
 
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class InventoryDTO {
+
     private int id;
     private int itemId;
     private int productId;
