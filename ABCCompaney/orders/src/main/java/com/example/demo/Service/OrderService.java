@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientException;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
+
 import java.util.List;
 @Service
 public class OrderService {
@@ -68,8 +71,11 @@ public class OrderService {
                 return new ErrorResponce("this item not availabel ");
             }
         }
-        catch (Exception e){
-            System.out.println(e);
+        catch (WebClientResponseException e) {
+            if(e.getStatusCode().is5xxServerError()){
+                return new ErrorResponce("this item not found it ");
+
+            }
         }
         return null;
     }
